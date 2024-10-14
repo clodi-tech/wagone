@@ -1,4 +1,11 @@
 import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface Itinerary {
   title: string;
@@ -63,30 +70,33 @@ export default function Itineraries() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {itineraries.map((itinerary, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-lg"
-          >
-            <div className="relative h-48">
-              <Image
-                src={itinerary.image}
-                alt={itinerary.title}
-                layout="fill"
-                objectFit="cover"
-              />
-              <div className="absolute top-2 right-2 bg-orange-400 text-white px-2 py-1 rounded">
-                {itinerary.type}
+          <Card key={index} className="overflow-hidden">
+            <CardHeader className="p-0">
+              <div className="relative h-48">
+                <Image
+                  src={itinerary.image}
+                  alt={itinerary.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <div className="absolute top-2 right-2 bg-orange-400 text-white px-2 py-1 rounded">
+                  {itinerary.type}
+                </div>
               </div>
-            </div>
-            <div className="p-4 bg-[#5f8d4e] text-white">
-              <h2 className="text-xl font-semibold mb-2">{itinerary.title}</h2>
+            </CardHeader>
+            <CardContent className="p-4 bg-[#5f8d4e] text-white">
+              <CardTitle className="text-xl font-semibold mb-2 text-white">
+                {itinerary.title}
+              </CardTitle>
               <div className="flex justify-between items-center mb-2">
                 <span>From: {itinerary.from}</span>
                 <span>{itinerary.duration}</span>
               </div>
+            </CardContent>
+            <CardFooter className="p-4 bg-[#5f8d4e] text-white">
               <p className="text-sm">{itinerary.stops.join(" - ")}</p>
-            </div>
-          </div>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>
