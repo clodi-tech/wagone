@@ -5,7 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
-import Header from "@/components/header";
+import Header from "@/components/root-header";
+import Footer from "@/components/root-footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <div className="w-full h-screen flex flex-col">
           <Header />
           {children}
+          <Footer />
         </div>
         <Analytics />
         <SpeedInsights />
