@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Rajdhani as FontSans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const fontSans = FontSans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
+      <body className={cn("font-sans antialiased", fontSans.variable)}>
+        <div className="w-full h-screen flex flex-col">{children}</div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
