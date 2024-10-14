@@ -5,6 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
+import Header from "@/components/header";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -27,7 +29,10 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={cn("font-sans antialiased", fontSans.variable)}>
-        <div className="w-full h-screen flex flex-col">{children}</div>
+        <div className="w-full h-screen flex flex-col">
+          <Header />
+          {children}
+        </div>
         <Analytics />
         <SpeedInsights />
       </body>
