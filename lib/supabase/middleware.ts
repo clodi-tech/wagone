@@ -29,9 +29,9 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
 
   // if (!user && request.nextUrl.pathname.startsWith("/my")) {
   //   const url = request.nextUrl.clone();
