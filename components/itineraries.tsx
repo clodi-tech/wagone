@@ -76,7 +76,7 @@ export default function Itineraries() {
                 <Image
                   src={itinerary.image}
                   alt={itinerary.title}
-                  layout="fill"
+                  fill
                   objectFit="cover"
                 />
                 <div className="absolute top-2 right-2 bg-orange-400 text-white px-2 py-1 rounded">
