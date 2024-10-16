@@ -14,8 +14,8 @@ export default async function Itineraries() {
   const supabase = createClient();
 
   const { data, error } = await supabase.from("itineraries").select("*");
-  // console.log("data", data);
-  // console.log("error", error);
+  console.log("data", data);
+  console.log("error", error);
 
   return (
     <div className="container mx-auto px-4 py-8">
