@@ -6,16 +6,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { itineraries } from "@/lib/consts";
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
+import { Itinerary } from "@/lib/types";
 
 export default async function Itineraries() {
   const supabase = createClient();
 
-  const { data, error } = await supabase.from("itineraries").select("*");
-  console.log("data", data);
-  console.log("error", error);
+  const { data: itineraries } = await supabase
+    .from("itineraries")
+    .select("*")
+    .eq("status", "PUBLISHED");
+  console.log("itineraries", itineraries);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -32,11 +34,11 @@ export default async function Itineraries() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Suspense fallback={<div>Loading...</div>}>
-          {itineraries.map((itinerary, index) => (
+          {itineraries?.map((itinerary: Itinerary, index) => (
             <Card key={index} className="overflow-hidden">
               <CardHeader className="p-0">
                 <div className="relative h-48">
-                  <Image src={itinerary.image} alt={itinerary.title} fill />
+                  {/* <Image src={itinerary.image} alt={itinerary.title} fill /> */}
                   <div className="absolute top-2 right-2 bg-orange-400 text-white px-2 py-1 rounded">
                     {itinerary.type}
                   </div>
@@ -47,12 +49,12 @@ export default async function Itineraries() {
                   {itinerary.title}
                 </CardTitle>
                 <div className="flex justify-between items-center mb-2">
-                  <span>From: {itinerary.from}</span>
-                  <span>{itinerary.duration}</span>
+                  <span>From: {itinerary.city0}</span>
+                  <span>{itinerary.duration_1}</span>
                 </div>
               </CardContent>
               <CardFooter className="p-4 bg-[#5f8d4e] text-white">
-                <p className="text-sm">{itinerary.stops.join(" - ")}</p>
+                <p className="text-sm">{itinerary.description}</p>
               </CardFooter>
             </Card>
           ))}
