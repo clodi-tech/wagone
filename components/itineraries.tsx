@@ -16,7 +16,6 @@ export default async function Itineraries() {
     .from("itineraries")
     .select("*")
     .eq("status", "PUBLISHED");
-  console.log("itineraries", itineraries);
 
   return (
     <div className="container mx-auto px-4 py-8">
