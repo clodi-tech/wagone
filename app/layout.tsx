@@ -30,7 +30,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={cn("font-sans antialiased", fontSans.variable)}>
-        <div className="w-full h-screen flex flex-col">
+        <div className="flex flex-col w-full h-full">
           <Header />
           {children}
           <Footer />
