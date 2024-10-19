@@ -32,10 +32,13 @@ export default async function Itineraries() {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="flex justify-center flex-wrap gap-6">
         <Suspense fallback={<div>Loading...</div>}>
           {itineraries?.map((itinerary: Itinerary) => (
-            <Card key={itinerary.id}>
+            <Card
+              key={itinerary.id}
+              className="flex-1 min-w-[250px] max-w-[300px]"
+            >
               <CardHeader>
                 <CardTitle>{itinerary.title}</CardTitle>
               </CardHeader>
