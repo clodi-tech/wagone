@@ -3,10 +3,12 @@ import {
   SiInstagram,
   SiLinkedin,
 } from "@icons-pack/react-simple-icons";
+import { urlInstagram, urlFacebook, urlLinkedin, urlEmail } from "@/lib/consts";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#5f8d4e] text-primary-foreground py-12">
+    <footer className="py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 py-8">
           <div>
@@ -25,22 +27,19 @@ export default function Footer() {
             <p className="text-sm sm:text-base leading-relaxed">
               For any enquiry:
               <br />
-              <a
-                href="mailto:contact.wagone@gmail.com"
-                className="hover:underline"
-              >
+              <a href={urlEmail} className="hover:underline">
                 contact.wagone@gmail.com
               </a>
             </p>
           </div>
-          <div>
+          <Link href="/about">
             <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">
               ABOUT
             </h2>
             <p className="text-sm sm:text-base leading-relaxed">
               Discover the story behind Wagone and the founder.
             </p>
-          </div>
+          </Link>
           <div>
             <h2 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">
               SOCIAL NETWORKS
@@ -49,22 +48,22 @@ export default function Footer() {
               Follow us on social networks.
             </p>
             <div className="flex space-x-6 sm:space-x-4">
-              <a href="#" className="hover:text-primary-foreground/80">
+              <a href={urlInstagram} className="hover:text-primary">
                 <SiInstagram className="h-8 w-8 sm:h-6 sm:w-6" />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="hover:text-primary-foreground/80">
+              <a href={urlFacebook} className="hover:text-primary">
                 <SiFacebook className="h-8 w-8 sm:h-6 sm:w-6" />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="hover:text-primary-foreground/80">
+              <a href={urlLinkedin} className="hover:text-primary">
                 <SiLinkedin className="h-8 w-8 sm:h-6 sm:w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-6 sm:pt-8 border-t border-primary-foreground/20 text-center text-xs sm:text-sm">
+        <div className="mt-8 pt-6 sm:pt-8 border-t text-center text-xs sm:text-sm">
           <p>&copy; Wagone 2024</p>
         </div>
       </div>
