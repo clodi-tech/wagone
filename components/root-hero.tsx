@@ -16,12 +16,12 @@ export default function Hero() {
         }}
         priority
       />
-      <div className="absolute inset-0 flex flex-col gap-4 items-start justify-end text-secondary bg-black bg-opacity-30 px-24 py-16">
+      <div className="absolute inset-0 flex flex-col gap-4 items-start justify-end text-primary-foreground bg-black bg-opacity-30 px-24 py-16">
         <h1 className="text-5xl font-bold">See the World by Rail</h1>
         <p className="text-xl">Low-carbon itineraries to travel differently.</p>
         <div className="flex gap-4">
-          <Button variant="secondary">Discover Itineraries</Button>
-          <Button variant="ghost">Request Itinerary</Button>
+          <Button>Discover Itineraries</Button>
+          <Button variant="secondary">Request Itinerary</Button>
         </div>
       </div>
     </section>
