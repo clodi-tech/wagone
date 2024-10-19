@@ -16,10 +16,14 @@ export default function Hero() {
         }}
         priority
       />
-      <div className="absolute inset-0 flex flex-col gap-4 items-start justify-end text-primary-foreground bg-black bg-opacity-30 px-24 py-16">
-        <h1 className="text-5xl font-bold">See the World by Rail</h1>
-        <p className="text-xl">Low-carbon itineraries to travel differently.</p>
-        <div className="flex gap-4">
+      <div className="absolute inset-0 flex flex-col gap-2 sm:gap-4 items-start justify-end text-primary-foreground bg-black bg-opacity-30 px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 md:py-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+          See the World by Rail
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl">
+          Low-carbon itineraries to travel differently.
+        </p>
+        <div className="flex flex-wrap gap-2">
           <Button>Discover Itineraries</Button>
           <Button variant="secondary">Request Itinerary</Button>
         </div>
