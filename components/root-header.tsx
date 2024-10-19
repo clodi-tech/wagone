@@ -18,10 +18,8 @@ const Logo = () => (
         className="w-12 h-12 sm:w-16 sm:h-16"
       />
       <div className="flex flex-col items-center">
-        <h1 className="text-xl sm:text-2xl font-bold text-primary-foreground">
-          WAGONE
-        </h1>
-        <p className="text-xs text-primary-foreground text">[wah-gone]</p>
+        <h1 className="text-xl sm:text-2xl font-bold">WAGONE</h1>
+        <p className="text-xs text">[wah-gone]</p>
       </div>
     </div>
   </Link>
@@ -33,20 +31,13 @@ const NavLink = ({
 }: {
   href: string;
   children: React.ReactNode;
-}) => (
-  <Link
-    href={href}
-    className="text-primary-foreground hover:text-primary-foreground/80"
-  >
-    {children}
-  </Link>
-);
+}) => <Link href={href}>{children}</Link>;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-[#5f8d4e] p-4">
+    <header className="p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Logo />
         <nav className="hidden md:flex space-x-6">
@@ -55,10 +46,7 @@ export default function Header() {
           <NavLink href="/about">About</NavLink>
         </nav>
         <div className="hidden md:block">
-          <Button
-            variant="secondary"
-            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-          >
+          <Button>
             <Mail className="mr-2 h-4 w-4" />
             Newsletter
           </Button>
@@ -70,18 +58,12 @@ export default function Header() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-[300px] bg-[#5f8d4e] text-primary-foreground"
-          >
+          <SheetContent side="right" className="w-[300px]">
             <nav className="flex flex-col space-y-4 mt-8">
               <NavLink href="/itineraries">Itineraries</NavLink>
               <NavLink href="/blog">Blog</NavLink>
               <NavLink href="/about">About</NavLink>
-              <Button
-                variant="secondary"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full"
-              >
+              <Button>
                 <Mail className="mr-2 h-4 w-4" />
                 Newsletter
               </Button>
