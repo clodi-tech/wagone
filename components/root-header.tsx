@@ -17,7 +17,7 @@ const Logo = () => (
         height={120}
         className="w-12 h-12 sm:w-16 sm:h-16"
       />
-      <div>
+      <div className="flex flex-col items-center">
         <h1 className="text-xl sm:text-2xl font-bold text-primary-foreground">
           WAGONE
         </h1>
