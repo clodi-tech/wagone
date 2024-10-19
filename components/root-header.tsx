@@ -37,40 +37,38 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="p-4">
-      <div className="container mx-auto flex items-center justify-between">
-        <Logo />
-        <nav className="hidden md:flex space-x-6">
-          <NavLink href="/">Itineraries</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/about">About</NavLink>
-        </nav>
-        <div className="hidden md:block">
-          <Button>
-            <Mail className="mr-2 h-4 w-4" />
-            Newsletter
-          </Button>
-        </div>
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px]">
-            <nav className="flex flex-col space-y-4 mt-8">
-              <NavLink href="/itineraries">Itineraries</NavLink>
-              <NavLink href="/blog">Blog</NavLink>
-              <NavLink href="/about">About</NavLink>
-              <Button>
-                <Mail className="mr-2 h-4 w-4" />
-                Newsletter
-              </Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
+    <header className="flex items-center justify-between p-4">
+      <Logo />
+      <nav className="hidden md:flex space-x-6">
+        <NavLink href="/">Itineraries</NavLink>
+        <NavLink href="/blog">Blog</NavLink>
+        <NavLink href="/about">About</NavLink>
+      </nav>
+      <div className="hidden md:block">
+        <Button>
+          <Mail className="mr-2 h-4 w-4" />
+          Newsletter
+        </Button>
       </div>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-[300px]">
+          <nav className="flex flex-col space-y-4 mt-8">
+            <NavLink href="/itineraries">Itineraries</NavLink>
+            <NavLink href="/blog">Blog</NavLink>
+            <NavLink href="/about">About</NavLink>
+            <Button>
+              <Mail className="mr-2 h-4 w-4" />
+              Newsletter
+            </Button>
+          </nav>
+        </SheetContent>
+      </Sheet>
     </header>
   );
 }
