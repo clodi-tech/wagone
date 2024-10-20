@@ -21,7 +21,7 @@ export default async function Itineraries() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">
         FIND YOUR NEXT ADVENTURE
       </h1>
 
@@ -37,7 +37,7 @@ export default async function Itineraries() {
           {itineraries?.map((itinerary: Itinerary) => (
             <Card
               key={itinerary.id}
-              className="flex-1 min-w-[250px] max-w-[300px]"
+              className="flex-1 min-w-[250px] w-full md:max-w-md"
             >
               <CardHeader>
                 <CardTitle>{itinerary.title}</CardTitle>
