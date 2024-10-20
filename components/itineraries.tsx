@@ -45,7 +45,7 @@ export default async function Itineraries() {
               <CardContent className="p-0">
                 <div className="relative">
                   <Image
-                    src="/placeholder.webp"
+                    src={itinerary.image_url || "/placeholder.webp"}
                     alt={itinerary.title}
                     width={1200}
                     height={800}
