@@ -1,7 +1,5 @@
 "use server";
 
-import { error } from "console";
-
 const KIT_API_KEY = process.env.KIT_API_KEY;
 const KIT_FORM_ID = process.env.KIT_FORM_ID;
 const KIT_API_URL = `https://api.convertkit.com/v3/forms/${KIT_FORM_ID}/subscribe`;
