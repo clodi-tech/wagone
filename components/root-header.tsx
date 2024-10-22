@@ -25,14 +25,6 @@ const Logo = () => (
   </Link>
 );
 
-const NavLink = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) => <Link href={href}>{children}</Link>;
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,9 +32,9 @@ export default function Header() {
     <header className="flex items-center justify-between p-4">
       <Logo />
       <nav className="hidden md:flex space-x-6">
-        <NavLink href="/">Itineraries</NavLink>
-        <NavLink href="/blog">Blog</NavLink>
-        <NavLink href="/about">About</NavLink>
+        <Link href="/">Itineraries</Link>
+        <Link href="/blog">Blog</Link>
+        <Link href="/about">About</Link>
       </nav>
       <div className="hidden md:block">
         <Link href="#newsletter-form">
@@ -61,13 +53,15 @@ export default function Header() {
         </SheetTrigger>
         <SheetContent side="right" className="w-[300px]">
           <nav className="flex flex-col space-y-4 mt-8">
-            <NavLink href="/itineraries">Itineraries</NavLink>
-            <NavLink href="/blog">Blog</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <Button>
-              <Mail className="mr-2 h-4 w-4" />
-              Newsletter
-            </Button>
+            <Link href="/itineraries">Itineraries</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/about">About</Link>
+            <Link href="#newsletter-form">
+              <Button>
+                <Mail className="mr-2 h-4 w-4" />
+                Newsletter
+              </Button>
+            </Link>
           </nav>
         </SheetContent>
       </Sheet>
