@@ -1,10 +1,15 @@
 "use server";
 
+import { NewsletterState } from "@/lib/types";
+
 const KIT_API_KEY = process.env.KIT_API_KEY;
 const KIT_FORM_ID = process.env.KIT_FORM_ID;
 const KIT_API_URL = `https://api.convertkit.com/v3/forms/${KIT_FORM_ID}/subscribe`;
 
-export async function newsletterSignup(prevState: any, formData: FormData) {
+export async function newsletterSignup(
+  prevState: NewsletterState,
+  formData: FormData
+): Promise<NewsletterState> {
   const first_name = formData.get("first_name");
   const email = formData.get("email");
 

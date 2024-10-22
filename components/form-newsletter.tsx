@@ -6,9 +6,15 @@ import { newsletterSignup } from "@/lib/actions";
 import ButtonSubmit from "@/components/button-submit";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { NewsletterState } from "@/lib/types";
+
+const initialState: NewsletterState = {
+  success: null,
+  error: null,
+};
 
 export default function FormNewsletter() {
-  const [state, formAction] = useFormState(newsletterSignup, null);
+  const [state, formAction] = useFormState(newsletterSignup, initialState);
   const [key, setKey] = useState(0);
 
   useEffect(() => {

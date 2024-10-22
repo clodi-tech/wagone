@@ -17,3 +17,8 @@ export interface Itinerary {
   title_dynamicpage: string;
   total_cost: string;
 }
+
+export interface NewsletterState {
+  success: boolean | null;
+  error: string | null;
+}
