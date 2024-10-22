@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Mail, Menu } from "lucide-react";
-import { newsletterSignup } from "@/lib/actions";
 
 const Logo = () => (
   <Link href="/">
@@ -46,12 +45,12 @@ export default function Header() {
         <NavLink href="/about">About</NavLink>
       </nav>
       <div className="hidden md:block">
-        <form action={newsletterSignup}>
-          <Button type="submit">
+        <Link href="#newsletter-form">
+          <Button>
             <Mail className="mr-2 h-4 w-4" />
             Newsletter
           </Button>
-        </form>
+        </Link>
       </div>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
