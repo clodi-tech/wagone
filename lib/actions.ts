@@ -24,10 +24,10 @@ export async function newsletterSignup(prevState: any, formData: FormData) {
     method: "POST",
   });
   const json = await response.json();
-  console.log(json);
 
   if (json.error) {
-    return { success: false, error: json.error };
+    console.error(json);
+    return { success: false, error: json.message };
   }
 
   return { success: true, error: null };

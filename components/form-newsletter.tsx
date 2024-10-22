@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { newsletterSignup } from "@/lib/actions";
-import { Button } from "@/components/ui/button";
+import ButtonSubmit from "@/components/button-submit";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -43,9 +43,7 @@ export default function FormNewsletter() {
           You are in! Please check your email.
         </span>
       )}
-      <Button type="submit" className="mt-2">
-        Subscribe
-      </Button>
+      <ButtonSubmit text="Subscribe" />
     </form>
   );
 }
