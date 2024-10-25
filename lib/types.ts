@@ -17,6 +17,11 @@ export interface Itinerary {
   title_dynamicpage: string;
   total_cost: string;
   slug: string;
+  titledynamicpage: string;
+  map_url: string;
+  map_width: number;
+  map_height: number;
+  extra_tip: string;
 }
 
 export interface NewsletterState {
