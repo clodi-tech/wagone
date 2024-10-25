@@ -64,6 +64,26 @@ export default async function TrainItinerary({
         <span>To: {itinerary?.city0}</span>
         <Button>Take me there</Button>
       </div>
+      {legs?.map((leg) => (
+        <div key={leg.uuid} className="flex flex-col gap-4">
+          <span>{leg.legname}</span>
+          <div className="flex gap-2">
+            <span>Operator 1</span>
+            <span>{leg.operator1type}</span>
+            <span>{leg.direct_transfer1}</span>
+            <span>{leg.duration1}</span>
+            <span>{leg.fee1}</span>
+          </div>
+          {leg.operatortype2 && (
+            <span className="text-red-500">Operator 2</span>
+          )}
+          <div className="flex gap-2">
+            <span>Total</span>
+            <span>{leg.duration1}</span>
+            <span>{leg.fee1}</span>
+          </div>
+        </div>
+      ))}
       <Button>Return to Itinerary Overview</Button>
       <div className="flex flex-col gap-2">
         <span>Extra tips for this itinerary</span>
