@@ -16,6 +16,7 @@ export interface Itinerary {
   "single/multi": "single country" | "multi country";
   title_dynamicpage: string;
   total_cost: string;
+  slug: string;
 }
 
 export interface NewsletterState {
