@@ -24,32 +24,52 @@ export default function FormNewsletter() {
   }, [state]);
 
   return (
-    <form
-      key={key}
-      id="newsletter-form"
-      action={formAction}
-      className="flex flex-col items-center gap-2"
-    >
-      <h2 className="text-2xl font-bold py-4">Subscribe to our newsletter</h2>
-      <div className="flex gap-2">
-        <div className="flex flex-col gap-1">
-          <Label htmlFor="first_name">First Name</Label>
-          <Input id="first_name" type="text" name="first_name" />
+    <div className="p-4 border shadow-lg bg-secondary">
+      {" "}
+      {/* Box styling */}
+      <form
+        key={key}
+        id="newsletter-form"
+        action={formAction}
+        className="flex flex-col items-center gap-2"
+      >
+        <h2 className="text-2xl font-bold py-4 text-center">
+          {" "}
+          {/* Centered text */}
+          Sign up for more travel itineraries and tips <br /> to organize your
+          next train holiday
+        </h2>
+        <div className="flex gap-2 mb-4">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="first_name">First Name</Label>
+            <Input
+              id="first_name"
+              type="text"
+              name="first_name"
+              className="bg-secondary border border-black" // Added background color here
+            />
+          </div>
+          <div className="flex flex-col gap-2 ml-8">
+            <Label htmlFor="email">Email*</Label>
+            <Input
+              required
+              id="email"
+              type="email"
+              name="email"
+              className="bg-secondary border border-black " // Added background color here
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-1">
-          <Label htmlFor="email">Email*</Label>
-          <Input required id="email" type="email" name="email" />
-        </div>
-      </div>
-      {state && !state.success && (
-        <span className="text-red-500 text-sm">{state.error}</span>
-      )}
-      {state && state.success && (
-        <span className="text-green-500 text-sm">
-          You are in! Please check your email.
-        </span>
-      )}
-      <ButtonSubmit text="Subscribe" />
-    </form>
+        {state && !state.success && (
+          <span className="text-red-500 text-sm">{state.error}</span>
+        )}
+        {state && state.success && (
+          <span className="text-green-500 text-sm">
+            You are in! Please check your email.
+          </span>
+        )}
+        <ButtonSubmit text="Join the Newsletter" />
+      </form>
+    </div>
   );
 }
