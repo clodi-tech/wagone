@@ -20,27 +20,33 @@ export default async function Itineraries() {
     .eq("status", "PUBLISHED");
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-12 py-10">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">
         FIND YOUR NEXT ADVENTURE
       </h1>
 
-      <div className="mb-6">
-        <select className="w-full p-2 border border-gray-300 rounded">
+      <div className="mb-8 flex justify-center">
+        <select className="w-80 p-1 text-sm border border-gray-300 rounded">
           <option>Select Country</option>
           {/* Add country options here */}
         </select>
       </div>
 
-      <div className="flex justify-center flex-wrap gap-6">
+      {/* Updated grid layout to limit to 3 per row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
         <Suspense fallback={<div>Loading...</div>}>
           {itineraries?.map((itinerary: Itinerary) => (
             <Card
               key={itinerary.id}
-              className="flex-1 min-w-[250px] w-full md:max-w-md"
+              className="w-full text-center bg-primary text-white"
             >
-              <CardHeader>
-                <CardTitle>{itinerary.title}</CardTitle>
+              <CardHeader className="p-3">
+                {" "}
+                {/* Reduced padding here */}
+                <CardTitle className="mb-1 font-normal text-lg">
+                  {itinerary.title}
+                </CardTitle>{" "}
+                {/* Reduced margin below title */}
               </CardHeader>
               <CardContent className="p-0">
                 <div className="relative">
@@ -54,17 +60,21 @@ export default async function Itineraries() {
                       height: "auto",
                     }}
                   />
-                  <Badge className="absolute top-2 right-2">
+                  <Badge className="absolute top-2 right-2 bg-accent">
                     {itinerary.type}
                   </Badge>
                 </div>
               </CardContent>
-              <CardFooter className="flex flex-col gap-2 p-4">
-                <div className="flex justify-between items-center w-full">
+              <CardFooter className="flex flex-col gap-3 p-3">
+                {/* Box for 'From' and 'Duration' */}
+                <div className="flex justify-between items-center w-full text-white italic">
                   <span>From: {itinerary.city0}</span>
                   <span>{itinerary.duration_1}</span>
                 </div>
-                <p className="text-sm">{itinerary.description}</p>
+                {/* Box for the description */}
+                <div className="w-full p-2 border-t border-b border-gray-300 bg-secondary text-black -mx-3">
+                  <p className="text-sm">{itinerary.description}</p>
+                </div>
               </CardFooter>
             </Card>
           ))}

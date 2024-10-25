@@ -9,7 +9,7 @@ import { Mail, Menu } from "lucide-react";
 
 const Logo = () => (
   <Link href="/">
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 text-accent-foreground ml-12">
       <Image
         src="/wagone.webp"
         alt="Wagone"
@@ -29,16 +29,20 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between p-4">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-left p-4 bg-primary z-50">
+      {" "}
+      {/* Added fixed, top-0, left-0, w-full, and z-50 */}
       <Logo />
-      <nav className="hidden md:flex space-x-6">
+      <nav className="hidden md:flex space-x-6 text-accent-foreground ml-6">
         <Link href="/">Itineraries</Link>
         <Link href="/blog">Blog</Link>
         <Link href="/about">About</Link>
       </nav>
-      <div className="hidden md:block">
+      <div className="hidden md:block ml-auto">
+        {" "}
+        {/* Added ml-auto to push it to the right */}
         <Link href="#newsletter-form">
-          <Button>
+          <Button className="bg-muted hover:bg-accent hover:text-white text-black mr-8">
             <Mail className="mr-2 h-4 w-4" />
             Newsletter
           </Button>
@@ -57,7 +61,7 @@ export default function Header() {
             <Link href="/blog">Blog</Link>
             <Link href="/about">About</Link>
             <Link href="#newsletter-form">
-              <Button>
+              <Button className="hover:bg-secondary text-white">
                 <Mail className="mr-2 h-4 w-4" />
                 Newsletter
               </Button>
