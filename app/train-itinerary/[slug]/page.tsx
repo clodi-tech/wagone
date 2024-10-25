@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { Itinerary } from "@/lib/types";
+import { Itinerary, Leg } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import FormNewsletter from "@/components/form-newsletter";
@@ -17,6 +17,18 @@ export default async function TrainItinerary({
     .eq("slug", params.slug)
     .single();
 
+  const legsIds = itinerary
+    ? Array.from(
+        { length: parseInt(itinerary?.legs_num) },
+        (_, i) => itinerary[`leg${i + 1}` as keyof Itinerary]
+      )
+    : [];
+
+  const { data: legs }: { data: Leg[] | null } = await supabase
+    .from("legs")
+    .select("*")
+    .in("uuid", legsIds);
+
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <div>TrainItinerary for slug: {params.slug}</div>
@@ -25,7 +37,7 @@ export default async function TrainItinerary({
         <span>From:</span> {itinerary?.city0}
         <span>Duration:</span> {itinerary?.duration_1}
         <span>Type:</span> {itinerary?.type}
-        <span>Legs:</span> {itinerary?.legs}
+        <span>Legs:</span> {itinerary?.legs_num}
         <span>Estimated cost:</span> {itinerary?.total_cost}
       </div>
       <div className="text-red-500">MISSING TEXT</div>
