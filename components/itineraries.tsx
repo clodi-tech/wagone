@@ -20,7 +20,7 @@ export default async function Itineraries() {
     .eq("status", "PUBLISHED");
 
   return (
-    <div className="container mx-auto px-12 py-10">
+    <div id="itineraries" className="container mx-auto px-12 py-10">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">
         FIND YOUR NEXT ADVENTURE
       </h1>

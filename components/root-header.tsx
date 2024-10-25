@@ -34,7 +34,7 @@ export default function Header() {
       {/* Added fixed, top-0, left-0, w-full, and z-50 */}
       <Logo />
       <nav className="hidden md:flex space-x-6 text-accent-foreground ml-6">
-        <Link href="/">Itineraries</Link>
+        <Link href="/#itineraries">Itineraries</Link>
         <Link href="/blog">Blog</Link>
         <Link href="/about">About</Link>
       </nav>

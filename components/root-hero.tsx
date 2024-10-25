@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -24,9 +25,11 @@ export default function Hero() {
           Low-carbon itineraries to travel differently.
         </p>
         <div className="flex flex-wrap gap-6">
-          <Button className="bg-white text-black hover:bg-primary hover:text-white">
-            Discover Itineraries
-          </Button>
+          <Link href="/#itineraries">
+            <Button className="bg-white text-black hover:bg-primary hover:text-white">
+              Discover Itineraries
+            </Button>
+          </Link>
           <Button className="bg-white text-black hover:bg-primary hover:text-white">
             Request Itinerary
           </Button>
